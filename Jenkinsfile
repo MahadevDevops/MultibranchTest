@@ -1,4 +1,3 @@
-//def branch_name = "${BRANCH_NAME}"
 pipeline {
     agent any
         
@@ -18,7 +17,7 @@ pipeline {
 				not { 
 					//branch 'feature' 
 					expression {
-						BRANCH_NAME ==~ /feature\/[0-9]+\.[0-9]+\.[0-9]+/
+						BRANCH_NAME ==~ /feature\/[0-9]+\.[0-9]+\.[0-9]+\.[A-Z]+\.[a-z]+/
 					}
 				}
 			}
