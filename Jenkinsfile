@@ -15,10 +15,7 @@ pipeline {
 		stage('Not feature') {
 			when { 
 				not { 
-					//branch 'feature' 
-					expression {
-						BRANCH_NAME ==~ /feature\/[0-9]+\.[0-9]+\.[0-9]+\.[A-Z]+\.[a-z]+/
-					}
+					branch 'feature' 
 				}
 			}
             steps {
