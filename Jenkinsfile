@@ -1,4 +1,3 @@
-//def branch_name = "${BRANCH_NAME}"
 pipeline {
     agent any
         
@@ -16,10 +15,7 @@ pipeline {
 		stage('Not feature') {
 			when { 
 				not { 
-					//branch 'feature' 
-					expression {
-						BRANCH_NAME ==~ /feature\/[0-9]+\.[0-9]+\.[0-9]+/
-					}
+					branch 'feature1' 
 				}
 			}
             steps {
@@ -31,7 +27,7 @@ pipeline {
                 branch 'release'
             }
             steps {
-                echo 'Hello from Release,  This is only for release branche.'
+                echo 'Hello from Release,  This is only for release branch.'
             }
         }
         stage('Deploy for Master') {
@@ -39,7 +35,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'Hello from Release,  This is only for release branche.'
+                echo 'Hello from master,  This is only for master branch.'
             }
         }
     }
